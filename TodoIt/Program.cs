@@ -6,7 +6,8 @@ namespace TodoIt
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int test = 100;
+            Console.WriteLine("Hello World!"+test);
         }
     }
 }
