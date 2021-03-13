@@ -1,47 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using TodoIt.Model;
 namespace TodoIt.Data
 {
     public class People
     {
 
-        private static int[] person = new int[]{
+        private static Person[] personList = new Person[]{
 
         };
-        int sizeOfArray = person.Length;
+        int sizeOfArray = personList.Length;
         public static int Size()
         {
-            return person.Length;
-            //sizeof.
-            
+            return personList.Length;
+        
         }
      
-        public  int FindAll(int [] person)
+        public  Person[] FindAll ()
         {
-            return sizeOfArray;
+            return personList;
         }
-        public int FindById(int[] personId)
+        public Person FindById(int personId)
         {
-            person = personId;
-            return sizeOfArray;
+
+            for (int i = 0; i <personList.Length; i++)
+            {
+                if(personList[i].personId == personId)
+                {
+                    return personList[i];
+                }
+
+            }
+            return null;
         }
-        public  int CreatePerson(int [] persinId)
+        public Person [] CreatePerson(Person[] person)
 
         {
             People array = new People();
-            array.CreatePerson(persinId);
-           // person[0] = 1;
-            //person[1] = 1;
-          Array.Resize(ref person, 10);
-         
-          return sizeOfArray;
+            array.CreatePerson(person);
+           //length
+          Array.Resize(ref personList, + 1);
+            return person;
+         // return sizeOfArray;
            
         }
         public  void Clea()
         {
-            Array.Clear(person,0,person.Length);
+            Array.Clear(personList, 0, personList.Length);
         }
 
     }

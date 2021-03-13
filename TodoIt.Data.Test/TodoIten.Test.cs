@@ -10,11 +10,11 @@ namespace TodoIt.Data.Test
         public void ToditemTets()
         {
             //Arrange 
-            int person;
+            int todo;
             int persinId;
             //Act
-            People array = new People();
-            person = 0;
+            TodoItems array = new TodoItems();
+            todo = 0;
             persinId = 0;
             //Asser
             Assert.Equal(0, persinId);

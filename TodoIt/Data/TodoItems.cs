@@ -1,49 +1,119 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TodoIt.Data;
+using TodoIt.Model;
 
 namespace TodoIt.Data
 {
     public class TodoItems
     {
 
-        private static int[] person = new int[]{
+        private static TODO[] todoList = new TODO[0];
 
-        };
-        int sizeOfArray = person.Length;
+        
+        int sizeOfArray = todoList.Length;
         public static int Size()
         {
-            return person.Length;
-            //sizeof.
-
+            return todoList.Length;
+         
         }
 
-        public int FindAll(int[] person)
+        public TODO []FindAll()
         {
-            return sizeOfArray;
+            
+            return todoList;
         }
-        public int FindById(int[] personId)
+        public TODO FindById(int TodoId)
         {
-            person = personId;
-            return sizeOfArray;
+            for (int i = 0; i < todoList.Length; i++)
+            {
+                if(todoList[i].ToDoId == TodoId)
+                {
+                    return todoList[i];
+                }
+            }
+            return null;
         }
-        public int CreatePerson(int[] persinId)
+        public int CreatenewTodo(string Description)
 
         {
-            People array = new People();
-            array.CreatePerson(persinId);
-            // person[0] = 1;
-            //person[1] = 1;
-            Array.Resize(ref person, 10);
-
+            TodoItems array = new TodoItems();
+            array.CreatenewTodo(Description);
+         
+            Array.Resize(ref todoList, 10);
             return sizeOfArray;
 
         }
         public void Clea()
         {
-            Array.Clear(person, 0, person.Length);
+            Array.Clear(todoList, 0, todoList.Length);
+        }
+
+        public  bool[] FindByDoneStatus(bool[] donestatus)
+
+        {
+            TODO[] personalTodoLis = new TODO[0];
+            for (int i = 0; i < todoList.Length; i++)
+            {
+                if (todoList[i].done == true)
+                {
+                    Array.Resize(ref personalTodoLis, personalTodoLis.Length + 1);
+                    Array.IndexOf(personalTodoLis, donestatus);
+                   // return donestatus;
+                }
+
+            }
+            return donestatus;
+      }
+        public TODO[] FindByAssignee(int personId)
+
+        {
+            //innehåller bara dina personlist
+            TODO[] personalTodoLis = new TODO[0];
+            
+
+            for (int i = 0; i <todoList.Length; i++)
+            {
+                if (todoList[i].Assignee.personId == personId )
+                {
+                    Array.Resize(ref personalTodoLis, personalTodoLis.Length + 1);
+
+                    Array.IndexOf( todoList, personalTodoLis);
+                 //gör plats i personal to list i en till 
+                 //sätta in todo i persolantodolist
+                }
+                
+            }
+            return personalTodoLis;
+        }
+        public TODO[] FindByAssignee(Person assignee)
+        {
+            TODO[] personAssignee = new TODO[0];
+            for (int i = 0; i <todoList.Length; i++)
+            {
+                if (todoList[i].Assignee == assignee)
+                {
+                    Array.Resize(ref personAssignee, todoList.Length + 1);
+
+                    Array.IndexOf(todoList, personAssignee);
+
+                }
+            }
+            return personAssignee;
+        }
+        public TODO[] FindUnassignedTodoItems()
+        {
+            TODO[] UnAssignee = new TODO[0];
+            for (int i = 0; i <todoList.Length; i++)
+            {
+             if(todoList[i].Assignee == null)
+                {
+                Array.IndexOf(todoList, UnAssignee);
+                    // return todoList;
+                }
+            }
+            return UnAssignee;
         }
     }
 }
-//TodoItems should have the same
-//functionality as the People class.

@@ -6,10 +6,11 @@ namespace TodoIt.Model
 {
    public class TODO
     {
-        int ToDoId;
-        string Description;
-        bool done = true;
-
+       public int ToDoId;
+      public  string Description;
+        public bool done = true;
+        public Person Assignee = new Person(); 
+        
         public int ToDod
         {
             get
@@ -38,6 +39,7 @@ namespace TodoIt.Model
             this.done = done;
             this.Description = Description;
         }
+
 
 
     }
