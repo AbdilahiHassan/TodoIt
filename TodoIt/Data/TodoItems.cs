@@ -115,5 +115,12 @@ namespace TodoIt.Data
             }
             return UnAssignee;
         }
+        public void Remove(TODO value)
+        {
+            int index = Array.IndexOf( todoList, todoList.Length);
+
+            Array.Clear(todoList, 0, index);
+
+        }
     }
 }

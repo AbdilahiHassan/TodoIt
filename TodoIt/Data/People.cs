@@ -14,19 +14,19 @@ namespace TodoIt.Data
         public static int Size()
         {
             return personList.Length;
-        
+
         }
-     
-        public  Person[] FindAll ()
+
+        public Person[] FindAll()
         {
             return personList;
         }
         public Person FindById(int personId)
         {
 
-            for (int i = 0; i <personList.Length; i++)
+            for (int i = 0; i < personList.Length; i++)
             {
-                if(personList[i].personId == personId)
+                if (personList[i].personId == personId)
                 {
                     return personList[i];
                 }
@@ -34,23 +34,31 @@ namespace TodoIt.Data
             }
             return null;
         }
-        public Person [] CreatePerson(Person[] person)
+        public Person[] CreatePerson(Person[] person)
 
         {
             People array = new People();
             array.CreatePerson(person);
-           //length
-          Array.Resize(ref personList, + 1);
+            //length
+            Array.Resize(ref personList, +1);
             return person;
-         // return sizeOfArray;
-           
+            // return sizeOfArray;
+
         }
-        public  void Clea()
+        public void Clea()
         {
+          
             Array.Clear(personList, 0, personList.Length);
         }
+        public void Remove(Person value)
+        {
+  
+            int index =  Array.IndexOf(personList, personList.Length);
+
+            Array.Clear( personList,0, index);
+           
+        }
+
 
     }
-
-
 }
